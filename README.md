@@ -1,2 +1,5 @@
-# BTL_UI_Team01
- React native project mobile app
+# UET_Courses
+
+React native project mobile app
+
+1st initalization
