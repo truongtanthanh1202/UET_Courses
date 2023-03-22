@@ -7,10 +7,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#E4F1F9',
   },
   top: {
-    backgroundColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 50,
   },
   bottom: {
-    backgroundColor: 'yellow',
+    flexDirection: 'row',
+    flex: 50,
+  },
+  left: {
+    flex: 55,
+  },
+  right: {
+    flex: 45,
+  },
+  svg: {
+    backgroundColor: 'white',
   },
   text: {
     color: '#333',
