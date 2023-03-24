@@ -35,8 +35,9 @@ const styles = StyleSheet.create({
     marginTop: '10%',
     color: '#060302',
     fontSize: 28,
-    fontWeight: 600,
+    fontWeight: 700,
     letterSpacing: 1,
+    fontFamily: 'Roboto',
   },
   describer: {
     marginTop: '10%',

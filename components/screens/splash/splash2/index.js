@@ -1,5 +1,15 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableHighlight, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableHighlight,
+  Alert,
+  StatusBar,
+} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //custom components
 import Splash1SVG from '../../../../assets/img/splash1_svg.js';
@@ -8,23 +18,18 @@ import DownArrow from '../../../../assets/img/downArrow.js';
 //style components
 import styles from './style.js';
 
-const Splash2 = () => {
+const Splash2 = ({navigation}) => {
   const handleConitnueScreen = () => {
-    Alert.alert(
-      'Congratulations!',
-      'Congratulations! You have successfully completed the course!',
-      [
-        {
-          text: 'OK',
-          onPress: () => console.log('OK Pressed'),
-          style: 'cancel',
-        },
-      ],
-      {cancelable: false},
-    );
+    navigation.navigate('Splash3');
   };
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="transparent"
+        translucent={true}
+      />
       <View style={styles.top}>
         <Splash1SVG width="64%" height="64%"></Splash1SVG>
       </View>
