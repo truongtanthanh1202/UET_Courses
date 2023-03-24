@@ -12,8 +12,8 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Splash1'>
-        <Stack.Screen name="Splash1" component={Splash1} />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {/* <Stack.Screen name="Splash1" component={Splash1} /> */}
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
       </Stack.Navigator>
