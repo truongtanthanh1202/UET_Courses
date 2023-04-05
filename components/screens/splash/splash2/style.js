@@ -1,5 +1,11 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {
+  Poppins400,
+  Poppins500,
+  Poppins600,
+  Poppins700,
+} from '../../../../constant/fontStyle.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,16 +40,16 @@ const styles = StyleSheet.create({
   title: {
     marginTop: '10%',
     color: '#060302',
-    fontSize: 28,
-    fontWeight: 700,
+    fontSize: 32,
     letterSpacing: 1,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins',
+    fontWeight: 600,
   },
   describer: {
     marginTop: '10%',
     color: '#767372',
     fontSize: 24,
-    fontWeight: 600,
+    ...Poppins700,
     letterSpacing: 2,
   },
   btnContinue: {
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
   innerBtn: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 400,
+    ...Poppins700,
     letterSpacing: 1,
   },
 });

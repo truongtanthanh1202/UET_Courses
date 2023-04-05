@@ -1,5 +1,11 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {
+  Poppins400,
+  Poppins500,
+  Poppins600,
+  Poppins700,
+} from '../../../../constant/fontStyle.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +27,10 @@ const styles = StyleSheet.create({
   appName: {
     color: 'black',
     marginTop: 16,
-    fontSize: 18,
+    fontSize: 17,
+    color: '#3788ff',
+    letterSpacing: 0.2,
+    ...Poppins700,
   },
 });
 

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {Poppins600, Poppins700} from '../../../../constant/fontStyle';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
   textInner: {
     color: '#3787FF',
     fontSize: 16,
+    ...Poppins600,
   },
   svg: {
     // backgroundColor: 'white',
@@ -37,12 +39,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#060302',
     letterSpacing: 1.4,
+    fontFamily: 'Poppins',
     lineHeight: 28,
     textAlign: 'center',
   },
   descript: {
     fontSize: 16,
     color: '#767372',
+    fontFamily: 'Poppins',
     marginTop: 16,
     lineHeight: 24,
     textAlign: 'center',
@@ -78,13 +82,15 @@ const styles = StyleSheet.create({
   innerBtnSigup: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: 700,
+    fontFamily: 'Poppins',
     letterSpacing: 1,
   },
   innerBtnLogin: {
     color: '#3787FF',
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: 700,
+    fontFamily: 'Poppins',
     letterSpacing: 1,
   },
 });

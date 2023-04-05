@@ -4,6 +4,7 @@ import {
   View,
   Image,
   TouchableHighlight,
+  TouchableOpacity,
   Modal,
   Alert,
   SafeAreaView,
@@ -64,20 +65,20 @@ const Splash3_3 = props => {
       <View
         style={[styles.bottom, (marginHorizontal = 20), (marginVertical = 48)]}>
         <View style={styles.left}>
-          <TouchableHighlight
+          <TouchableOpacity
             style={[styles.SignUpBtn]}
             onPress={handleToLogin}
             underlayColor="white">
             <Text style={styles.innerBtnSigup}>Sign up</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
         <View style={styles.right}>
-          <TouchableHighlight
+          <TouchableOpacity
             style={[styles.LoginBtn]}
             onPress={handleToLogin}
             underlayColor="#3787FF">
             <Text style={styles.innerBtnLogin}>Log in</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

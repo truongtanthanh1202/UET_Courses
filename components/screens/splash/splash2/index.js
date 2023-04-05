@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableHighlight,
-  Alert,
-  StatusBar,
-} from 'react-native';
+import {Text, View, TouchableOpacity, StatusBar} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -49,11 +42,11 @@ const Splash2 = ({navigation}) => {
               style={[styles.svg]}></DownArrow>
           </View>
           <View style={[styles.flex50]}>
-            <TouchableHighlight
+            <TouchableOpacity
               style={[styles.btnContinue]}
               onPress={handleConitnueScreen}>
               <Text style={styles.innerBtn}>Continue</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
