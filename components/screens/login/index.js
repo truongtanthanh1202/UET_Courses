@@ -118,7 +118,8 @@ const Login = props => {
 
             <TouchableOpacity
               onPress={() => {
-                alert('Navigate to Forgot Password Screen');
+                // alert('Navigate to Forgot Password Screen');
+                props.navigation.navigate('Forgot_1');
               }}>
               <Text
                 style={{
@@ -200,7 +201,7 @@ const Login = props => {
                 <Text>Don't have an account? </Text>
                 <TouchableOpacity
                   onPress={() => {
-                    alert('Navigate to Sigup');
+                    props.navigation.navigate('SignUp_1');
                   }}>
                   <Text
                     style={{
