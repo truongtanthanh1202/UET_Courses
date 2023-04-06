@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text} from 'react-native';
+import {View, Text, Keyboard} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
@@ -33,7 +33,7 @@ const NavBar = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          bottom: 20,
+          bottom: bottomMarginStatus,
           left: 12,
           right: 12,
           elevation: 0.2,
