@@ -40,17 +40,16 @@ const styles = StyleSheet.create({
   title: {
     marginTop: '10%',
     color: '#060302',
-    fontSize: 32,
-    letterSpacing: 1,
-    fontFamily: 'Poppins',
-    fontWeight: 600,
+    fontSize: 36,
+    letterSpacing: 0.1,
+    fontFamily: 'Montserrat-Medium',
   },
   describer: {
     marginTop: '10%',
     color: '#767372',
     fontSize: 24,
-    ...Poppins700,
-    letterSpacing: 2,
+    fontFamily: 'Montserrat-Medium',
+    letterSpacing: 1,
   },
   btnContinue: {
     backgroundColor: '#3787FF',
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
   innerBtn: {
     color: 'white',
     fontSize: 16,
-    ...Poppins700,
+    fontFamily: 'Comfortaa-Bold',
     letterSpacing: 1,
   },
 });

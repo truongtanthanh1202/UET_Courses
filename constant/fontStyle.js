@@ -1,3 +1,6 @@
+//Poppins
+//Comfortaa
+//Montserrat
 const Poppins400 = {
   fontFamily: 'Poppins',
   fontWeight: '400',

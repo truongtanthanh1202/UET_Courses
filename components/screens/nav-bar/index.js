@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, Keyboard} from 'react-native';
+import {View, Text, Keyboard, Platform} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
@@ -39,10 +39,11 @@ const NavBar = () => {
           elevation: 0.2,
           backgroundColor: '#3788ff',
           borderRadius: 50,
-          minHeight: 100,
+          minHeight: Platform.OS === 'ios' ? 72 : 88,
         },
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
+          size = Platform.OS === 'ios' ? 20 : 28;
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
