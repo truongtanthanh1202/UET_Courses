@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   View,
@@ -14,7 +14,31 @@ import Lock from '../../../assets/img/lock';
 import styles from './style';
 import Google from '../../../assets/icon/google';
 
-const Login = () => {
+import {isValidEmail, isValidPassword} from '../../utilies/Validations';
+
+const Login = props => {
+  const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
+  // Validate email/password
+  const [textErrorEmail, setTextErrorEmail] = useState('');
+  const [textErrorPassword, setTextErrorPassword] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isValidationOK = () =>
+    email.length >= 0 &&
+    password.length >= 0 &&
+    isValidEmail(email) == true &&
+    isValidPassword(password) == true;
+
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardIsShow(true);
+    });
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardIsShow(false);
+    });
+  });
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={{flex: 1, width: '100%'}}>
@@ -38,24 +62,58 @@ const Login = () => {
                 style={styles.inputField}
                 autoFocus={true}
                 placeholder="Email id"
-                placeholderTextColor="black"></TextInput>
+                placeholderTextColor="black"
+                onChangeText={text => {
+                  setTextErrorEmail(
+                    isValidEmail(text) == true
+                      ? ''
+                      : 'Please enter valid email',
+                  );
+                  setEmail(text);
+                }}></TextInput>
               <Ionicons
                 name="mail-unread-outline"
                 size={32}
                 style={styles.inputIcon}
               />
+              <Text
+                style={{
+                  color: 'red',
+                  fontSize: 12,
+                  marginLeft: 32,
+                  marginBottom: 10,
+                }}>
+                {textErrorEmail}
+              </Text>
             </View>
             <View style={{width: '100%'}}>
               <TextInput
                 style={styles.inputField}
-                // autoFocus={true}
+                secureTextEntry={true}
                 placeholder="Password"
-                placeholderTextColor="black"></TextInput>
+                placeholderTextColor="black"
+                onChangeText={text => {
+                  setTextErrorPassword(
+                    isValidPassword(text) == true
+                      ? ''
+                      : 'Password must be at least 6 characters',
+                  );
+                  setPassword(text);
+                }}></TextInput>
               <Ionicons
                 name="eye-off-outline"
                 size={32}
                 style={styles.inputIcon}
               />
+              <Text
+                style={{
+                  color: 'red',
+                  fontSize: 12,
+                  marginLeft: 32,
+                  marginBottom: 10,
+                }}>
+                {textErrorPassword}
+              </Text>
             </View>
 
             <TouchableOpacity
@@ -73,7 +131,18 @@ const Login = () => {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.buttonSignIn}>
+            <TouchableOpacity
+              disabled={isValidationOK() == false}
+              style={[
+                styles.buttonSignIn,
+                {
+                  backgroundColor:
+                    isValidationOK == false ? '#5097ff' : '#3787ff',
+                },
+              ]}
+              onPress={() => {
+                alert(`Email = ${email}, Password = ${password}`);
+              }}>
               <Text
                 style={{
                   color: 'white',
@@ -91,7 +160,7 @@ const Login = () => {
                 textAlign: 'center',
                 fontSize: 16,
                 fontWeight: 500,
-                marginBottom: 16,
+                marginBottom: 12,
               }}>
               ( or )
             </Text>
@@ -121,27 +190,29 @@ const Login = () => {
               </TouchableOpacity>
             </View>
 
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'center',
-                padding: 20,
-              }}>
-              <Text>Don't have an account? </Text>
-              <TouchableOpacity
-                onPress={() => {
-                  alert('Navigate to Sigup');
+            {KeyboardIsShow == false && (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  padding: 20,
                 }}>
-                <Text
-                  style={{
-                    color: '#5297fe',
-                    textDecorationLine: 'underline',
+                <Text>Don't have an account? </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    alert('Navigate to Sigup');
                   }}>
-                  {' '}
-                  Sign up
-                </Text>
-              </TouchableOpacity>
-            </View>
+                  <Text
+                    style={{
+                      color: '#5297fe',
+                      textDecorationLine: 'underline',
+                    }}>
+                    {' '}
+                    Sign up
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            )}
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>

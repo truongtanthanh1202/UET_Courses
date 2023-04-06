@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Comfortaa-Bold',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 4,
   },
   inputIcon: {
     position: 'absolute',
@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     justifyContent: 'center',
     alignItem: 'center',
-    backgroundColor: '#3787ff',
-    marginBottom: 28,
+    marginBottom: 24,
   },
 });
 
