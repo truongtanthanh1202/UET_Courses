@@ -143,6 +143,7 @@ const Login = props => {
               ]}
               onPress={() => {
                 alert(`Email = ${email}, Password = ${password}`);
+                props.navigation.navigate('NavBar');
               }}>
               <Text
                 style={{

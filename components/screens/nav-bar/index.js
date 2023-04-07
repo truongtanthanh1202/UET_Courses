@@ -28,7 +28,6 @@ const NavBar = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarShowLabel: true,
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {

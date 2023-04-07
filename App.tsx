@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 //Screens component
 import { Splash1, Splash2, Splash3} from './components/screens/splash';
 import NavBar from './components/screens/nav-bar';
@@ -21,8 +20,8 @@ const App = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp_1" component={SignUp_1} />
         <Stack.Screen name="Forgot_1" component={Forgot_1} />
+        <Stack.Screen name="NavBar" component={NavBar}/>
       </Stack.Navigator>
-      {/* <NavBar></NavBar> */}
     </NavigationContainer>
   );
 };
