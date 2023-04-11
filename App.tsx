@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Splash1, Splash2, Splash3} from './components/screens/splash';
 import NavBar from './components/screens/nav-bar';
 import Login from './components/screens/login';
-import { SignUp_1 } from './components/screens/signup';
+import { SignUp_1, SignUp_2, SignUp_3 } from './components/screens/signup';
 import { Forgot_1 } from './components/screens/forgot-password';
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +19,8 @@ const App = () => {
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp_1" component={SignUp_1} />
+        <Stack.Screen name="SignUp_2" component={SignUp_2} />
+        <Stack.Screen name="SignUp_3" component={SignUp_3} />
         <Stack.Screen name="Forgot_1" component={Forgot_1} />
         <Stack.Screen name="NavBar" component={NavBar}/>
       </Stack.Navigator>

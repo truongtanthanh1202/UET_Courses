@@ -19,8 +19,8 @@ const Splash3 = ({navigation}) => {
     navigation.navigate('Login');
   };
   const handleToSigup = () => {
-    // navigation.navigate('Sigup');
-    console.log('navigation to sigup');
+    navigation.navigate('SignUp_1');
+    // console.log('navigation to sigup');
   };
   return (
     <View style={{flex: 1, backgroundColor: '#E4F1F9'}}>
