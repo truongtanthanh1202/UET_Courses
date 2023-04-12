@@ -15,7 +15,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="Splash1" component={Splash1} />
+        <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Login" component={Login} />
@@ -24,7 +24,7 @@ const App = () => {
         <Stack.Screen name="SignUp_3" component={SignUp_3} />
         <Stack.Screen name="Forgot_1" component={Forgot_1} />
         <Stack.Screen name="Forgot_2" component={Forgot_2} />
-        <Stack.Screen name="Forgot_3" component={Forgot_3} /> */}
+        <Stack.Screen name="Forgot_3" component={Forgot_3} />
         <Stack.Screen name="NavBar" component={NavBar}/>
         <Stack.Screen name="Setting" component={Setting}/>
         <Stack.Screen name="ChangePassword" component={ChangePassword}/>
