@@ -15,13 +15,13 @@ const NavBar = ({route, navigation}) => {
   const {email} = route.params;
   const {password} = route.params;
 
-  const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
+  const [bottomMarginStatus, setbottomMarginStatus] = useState(12);
   useEffect(() => {
     const showNavBar = Keyboard.addListener('keyboardDidShow', () => {
       setbottomMarginStatus(0);
     });
     const hideNavBar = Keyboard.addListener('keyboardDidHide', () => {
-      setbottomMarginStatus(20);
+      setbottomMarginStatus(12);
     });
 
     return () => {
@@ -35,14 +35,13 @@ const NavBar = ({route, navigation}) => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          position: 'absolute',
           bottom: bottomMarginStatus,
-          left: 12,
-          right: 12,
+          marginHorizontal: 12,
+          paddingHorizontal: 20,
           elevation: 0.2,
           backgroundColor: '#3788ff',
           borderRadius: 50,
-          minHeight: Platform.OS === 'ios' ? 72 : 88,
+          minHeight: Platform.OS === 'ios' ? 60 : 68,
         },
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
@@ -61,13 +60,27 @@ const NavBar = ({route, navigation}) => {
             <View
               style={{
                 alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'row',
+                // backgroundColor: 'lightblue',
               }}>
-              <Ionicons name={iconName} size={size} color="white" />
+              <Ionicons name={iconName} size={30} color="white" />
               <Text
                 style={{
                   color: focused ? 'white' : 'white',
+                  marginLeft: 8,
+                  marginTop: 12,
+                  fontSize: 14,
+                  lineHeight: 26,
+                  fontFamily: 'Poppins-Medium',
+                  borderTopColor: '#E4F1F9',
+                  borderTopWidth: 1.8,
+                  borderTopLeftRadius: 2,
+                  borderTopRightRadius: 2,
+                  borderTopEndRadius: 2,
+                  borderTopStartRadius: 2,
                 }}>
-                {route.name}
+                {focused == true && route.name}
               </Text>
             </View>
           );
