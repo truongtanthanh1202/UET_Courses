@@ -27,7 +27,12 @@ const SignUp_3 = ({route, navigation}) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate('NavBar');
+            navigation.navigate('NavBar', {
+              role: {role},
+              email: {email},
+              password: {password},
+            });
+            alert(`Role: ${role}, Email: ${email}, Password: ${password}`);
           }}>
           <Text style={styles.textInnerButton}>Done</Text>
         </TouchableOpacity>

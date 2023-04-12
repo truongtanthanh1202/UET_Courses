@@ -5,3 +5,7 @@ export const isValidEmail = stringEmail => {
 
 //validate password
 export const isValidPassword = stringPassword => stringPassword.length >= 6;
+
+export const isConfirmPassword = (stringPassword, stringConfirmPassword) => {
+  return stringPassword === stringConfirmPassword;
+};

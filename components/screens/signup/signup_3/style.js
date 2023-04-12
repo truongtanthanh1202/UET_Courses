@@ -10,16 +10,41 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     backgroundColor: 'white',
-    padding: 20,
+    padding: 24,
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  icon: {},
-  title: {},
-  describe: {},
-  button: {},
-  textInnerButton: {},
+  icon: {
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 18,
+    color: 'black',
+    fontFamily: 'Poppins-Medium',
+    marginBottom: 16,
+  },
+  describe: {
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    width: '100%',
+    height: Platform.OS === 'ios' ? 48 : 56,
+    backgroundColor: '#3787FF',
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  textInnerButton: {
+    fontSize: 16,
+    fontFamily: 'Poppins-Medium',
+    color: 'white',
+  },
 });
 
 export default styles;

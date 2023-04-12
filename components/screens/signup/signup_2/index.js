@@ -11,22 +11,44 @@ import {
 import {Dropdown} from 'react-native-element-dropdown';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import {
+  isValidEmail,
+  isValidPassword,
+  isConfirmPassword,
+} from '../../../utilies/Validations';
+
 import styles from './style';
 
 const data = [
   {label: 'Student', value: 'student'},
-  {label: 'Teacher', value: 'student'},
+  {label: 'Teacher', value: 'teacher'},
 ];
 
 const SignUp_2 = props => {
+  // Validate role/email/password
+  const [textErrorRole, setTextErrorRole] = useState('');
+  const [textErrorEmail, setTextErrorEmail] = useState('');
+  const [textErrorPass, setTextErrorPass] = useState('');
+  const [textErrorConfirmPass, setTextConfirmPass] = useState('');
+
   const [value, setValue] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+
+  const isValidationOK = () =>
+    email.length >= 0 &&
+    password.length >= 0 &&
+    value != null &&
+    confirmPass === password &&
+    isValidEmail(email) == true &&
+    isValidPassword(password) == true;
 
   function handlerSignupSuccess() {
-    console.log('register success');
     props.navigation.navigate('SignUp_3', {
-      role: 'student',
-      email: 'ttt@gmail.com',
-      password: '123456',
+      role: value,
+      email: email,
+      password: password,
     });
   }
 
@@ -63,6 +85,7 @@ const SignUp_2 = props => {
             value={value}
             onChange={item => {
               setValue(item.value);
+              // console.log(value);
             }}
           />
 
@@ -74,7 +97,7 @@ const SignUp_2 = props => {
               marginBottom: 8,
               fontFamily: 'Poppins-Regular',
             }}>
-            {/* {textErrorRole} */}
+            {textErrorRole}
           </Text>
 
           <View>
@@ -82,7 +105,14 @@ const SignUp_2 = props => {
               style={styles.inputField}
               autoFocus={false}
               placeholder="email address"
-              placeholderTextColor="black"></TextInput>
+              placeholderTextColor="black"
+              onChangeText={text => {
+                setTextErrorRole(value === null ? 'please select a role' : '');
+                setTextErrorEmail(
+                  isValidEmail(text) == true ? '' : 'Please enter valid email',
+                );
+                setEmail(text);
+              }}></TextInput>
             <Text
               style={{
                 color: 'red',
@@ -91,7 +121,7 @@ const SignUp_2 = props => {
                 marginBottom: 8,
                 fontFamily: 'Poppins-Regular',
               }}>
-              {/* {textErrorEmail} */}
+              {textErrorEmail}
             </Text>
           </View>
 
@@ -100,7 +130,16 @@ const SignUp_2 = props => {
               style={styles.inputField}
               autoFocus={false}
               placeholder="password"
-              placeholderTextColor="black"></TextInput>
+              placeholderTextColor="black"
+              secureTextEntry={true}
+              onChangeText={text => {
+                setTextErrorPass(
+                  isValidPassword(text) == true
+                    ? ''
+                    : 'Password must be at least 6 characters',
+                );
+                setPassword(text);
+              }}></TextInput>
             <Text
               style={{
                 color: 'red',
@@ -109,15 +148,24 @@ const SignUp_2 = props => {
                 marginBottom: 8,
                 fontFamily: 'Poppins-Regular',
               }}>
-              {/* {textErrorPass} */}
+              {textErrorPass}
             </Text>
 
             <View>
               <TextInput
                 style={styles.inputField}
                 autoFocus={false}
+                secureTextEntry={true}
                 placeholder="confirm password"
-                placeholderTextColor="black"></TextInput>
+                placeholderTextColor="black"
+                onChangeText={text => {
+                  setTextConfirmPass(
+                    isConfirmPassword(text, password) == true
+                      ? ''
+                      : 'Password not matches',
+                  );
+                  setConfirmPass(text);
+                }}></TextInput>
               <Text
                 style={{
                   color: 'red',
@@ -126,12 +174,13 @@ const SignUp_2 = props => {
                   marginBottom: 8,
                   fontFamily: 'Poppins-Regular',
                 }}>
-                {/* {textErrorConfirmPass} */}
+                {textErrorConfirmPass}
               </Text>
             </View>
           </View>
 
           <TouchableOpacity
+            disabled={isValidationOK() == false}
             style={styles.buttonContinue}
             onPress={handlerSignupSuccess}>
             <Text style={styles.textInnerBtnContinue}>Continue</Text>
