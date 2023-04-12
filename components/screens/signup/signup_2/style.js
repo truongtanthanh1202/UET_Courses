@@ -8,13 +8,36 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#E4F1F9',
   },
+  top: {
+    flex: 26,
+    justifyContent: 'center',
+  },
+  mid: {
+    flex: 74,
+  },
+  btnBack: {
+    marginTop: 40,
+    marginHorizontal: 20,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconBack: {},
+  title: {
+    color: 'black',
+    fontFamily: 'Poppins-Medium',
+    fontSize: 20,
+    marginHorizontal: 20,
+    marginTop: 12,
+  },
   dropdown: {
     marginHorizontal: 28,
     paddingHorizontal: 20,
     height: Platform.OS === 'ios' ? 56 : 64,
     backgroundColor: 'white',
     borderRadius: 30,
-    marginBottom: 24,
+    marginBottom: 4,
   },
   icon: {
     marginRight: 5,
@@ -29,6 +52,17 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
+  inputField: {
+    height: Platform.OS === 'ios' ? 56 : 64,
+    backgroundColor: 'white',
+    marginHorizontal: 28,
+    borderRadius: 30,
+    paddingHorizontal: 20,
+    fontSize: 15,
+    fontFamily: 'Poppins-Medium',
+    justifyContent: 'center',
+    marginBottom: 4,
+  },
   buttonContinue: {
     height: Platform.OS === 'ios' ? 52 : 58,
     borderRadius: 28,
@@ -36,6 +70,7 @@ const styles = StyleSheet.create({
     alignItem: 'center',
     backgroundColor: '#5197FE',
     marginHorizontal: 28,
+    marginTop: 40,
   },
   textInnerBtnContinue: {
     color: 'white',
