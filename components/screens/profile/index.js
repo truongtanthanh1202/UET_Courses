@@ -2,7 +2,10 @@ import React from 'react';
 import {Text, View, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Profile = () => {
+const Profile = ({route, navigation}) => {
+  const {role} = route.params;
+  const {email} = route.params;
+  const {password} = route.params;
   return (
     <View
       style={{
@@ -11,8 +14,10 @@ const Profile = () => {
         alignItems: 'center',
         backgroundColor: '#e4f1f9',
       }}>
-      <Ionicons name="search-outline" size={32} />
-      <Text>Profile</Text>
+      <Ionicons name="person-outline" size={32} />
+      <Text>Profile {role}</Text>
+      <Text>{email}</Text>
+      <Text>{password}</Text>
     </View>
   );
 };

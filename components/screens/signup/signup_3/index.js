@@ -28,9 +28,9 @@ const SignUp_3 = ({route, navigation}) => {
           style={styles.button}
           onPress={() => {
             navigation.navigate('NavBar', {
-              role: {role},
-              email: {email},
-              password: {password},
+              role: role,
+              email: email,
+              password: password,
             });
             alert(`Role: ${role}, Email: ${email}, Password: ${password}`);
           }}>

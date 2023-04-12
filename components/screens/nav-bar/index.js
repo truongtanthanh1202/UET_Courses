@@ -10,7 +10,11 @@ import Profile from '../profile';
 
 const Tab = createBottomTabNavigator();
 
-const NavBar = () => {
+const NavBar = ({route, navigation}) => {
+  const {role} = route.params;
+  const {email} = route.params;
+  const {password} = route.params;
+
   const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
   useEffect(() => {
     const showNavBar = Keyboard.addListener('keyboardDidShow', () => {
@@ -70,10 +74,26 @@ const NavBar = () => {
         },
         // '#3788ff',
       })}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Course" component={Course} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        initialParams={{role: role, email: email, password: password}}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        initialParams={{role: role, email: email, password: password}}
+      />
+      <Tab.Screen
+        name="Course"
+        component={Course}
+        initialParams={{role: role, email: email, password: password}}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        initialParams={{role: role, email: email, password: password}}
+      />
     </Tab.Navigator>
   );
 };

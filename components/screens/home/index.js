@@ -2,7 +2,10 @@ import React from 'react';
 import {Text, View, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Home = () => {
+const Home = ({route, navigation}) => {
+  const {role} = route.params;
+  const {email} = route.params;
+  const {password} = route.params;
   return (
     <View
       style={{
@@ -12,7 +15,9 @@ const Home = () => {
         backgroundColor: '#e4f1f9',
       }}>
       <Ionicons name="home-outline" size={32} />
-      <Text>Home</Text>
+      <Text>Hello {role}</Text>
+      <Text>{email}</Text>
+      <Text>{password}</Text>
     </View>
   );
 };
