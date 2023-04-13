@@ -1,19 +1,61 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Forgot_1 = () => {
+import styles from './style';
+
+const Forgot_1 = props => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#e4f1f9',
-      }}>
-      <Ionicons name="home-outline" size={32} />
-      <Text>Forgot password</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.top}>
+        <TouchableOpacity
+          style={styles.btnBack}
+          onPress={() => {
+            props.navigation.goBack();
+          }}>
+          <Ionicons
+            name="chevron-back-outline"
+            size={32}
+            color="black"
+            style={styles.iconBack}
+          />
+        </TouchableOpacity>
+
+        <Text style={styles.title}>Enter your email</Text>
+      </View>
+
+      <View style={styles.mid}>
+        <View>
+          <TextInput
+            style={styles.inputField}
+            autoFocus={true}
+            placeholder="email address"
+            placeholderTextColor="black"></TextInput>
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: 32,
+              marginRight: 20,
+              marginVertical: 10,
+              fontFamily: 'Poppins-Regular',
+            }}>
+            {/* {textErrorEmail} */}
+            The email address you provided is not associated with your account
+          </Text>
+        </View>
+
+        <TouchableOpacity style={styles.buttonContinue}>
+          <Text style={styles.textInnerBtnContinue}>Sent email</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
