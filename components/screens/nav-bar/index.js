@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, Keyboard, Platform} from 'react-native';
+import {View, Text, Keyboard, Platform, Alert} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
@@ -11,9 +11,13 @@ import Profile from '../profile';
 const Tab = createBottomTabNavigator();
 
 const NavBar = ({route, navigation}) => {
-  const {role} = route.params;
-  const {email} = route.params;
-  const {password} = route.params;
+  let {role} = route.params ?? 'student';
+  let {email} = route.params ?? 'abc@gmail.com';
+  let {password} = route.params ?? 'abc';
+
+  if (!role) role = 'student';
+  if (!email) email = 'abc@gmail.com';
+  if (!password) password = 'abc';
 
   const [bottomMarginStatus, setbottomMarginStatus] = useState(12);
   useEffect(() => {
