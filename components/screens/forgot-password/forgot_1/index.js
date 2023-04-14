@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
   SafeAreaView,
   TouchableOpacity,
   TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import {isValidEmail} from '../../../utilies/Validations';
 
 import styles from './style';
 
 const Forgot_1 = props => {
+  const [textErrorEmail, setTextErrorEmail] = useState('');
+  const [email, setEmail] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
@@ -30,31 +36,45 @@ const Forgot_1 = props => {
         <Text style={styles.title}>Enter your email</Text>
       </View>
 
-      <View style={styles.mid}>
-        <View>
-          <TextInput
-            style={styles.inputField}
-            autoFocus={true}
-            placeholder="email address"
-            placeholderTextColor="black"></TextInput>
-          <Text
-            style={{
-              color: 'red',
-              fontSize: 12,
-              marginLeft: 32,
-              marginRight: 20,
-              marginVertical: 10,
-              fontFamily: 'Poppins-Regular',
-            }}>
-            {/* {textErrorEmail} */}
-            The email address you provided is not associated with your account
-          </Text>
-        </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.mid}>
+          <View>
+            <TextInput
+              style={styles.inputField}
+              autoFocus={true}
+              placeholder="email address"
+              placeholderTextColor="#70747e"
+              onChangeText={text => {
+                setTextErrorEmail(
+                  isValidEmail(text) == true
+                    ? ''
+                    : 'The email address you provided is not associated with your account',
+                );
+                setEmail(text);
+              }}></TextInput>
+            <Text
+              style={{
+                color: 'red',
+                fontSize: 12,
+                marginLeft: 32,
+                marginRight: 20,
+                marginVertical: 10,
+                fontFamily: 'Poppins-Regular',
+              }}>
+              {textErrorEmail}
+            </Text>
+          </View>
 
-        <TouchableOpacity style={styles.buttonContinue}>
-          <Text style={styles.textInnerBtnContinue}>Sent email</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            style={styles.buttonContinue}
+            disabled={isValidEmail(email) == false}
+            onPress={() => {
+              props.navigation.navigate('Forgot_2');
+            }}>
+            <Text style={styles.textInnerBtnContinue}>Sent email</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };
