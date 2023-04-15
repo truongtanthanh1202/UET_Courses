@@ -16,7 +16,7 @@ const Forgot_2 = props => {
       <TouchableOpacity
         style={styles.buttonContinue}
         onPress={() => {
-          //   props.navigation.navigate('Forgot_2');
+          props.navigation.navigate('Forgot_3');
         }}>
         <Text style={styles.textInnerBtnContinue}>Reset password</Text>
       </TouchableOpacity>
@@ -24,7 +24,7 @@ const Forgot_2 = props => {
       <TouchableOpacity
         style={styles.buttonLogin}
         onPress={() => {
-          //   props.navigation.navigate('Forgot_2');
+          props.navigation.navigate('Login');
         }}>
         <Text style={styles.textInnerBtnLogin}>Navigate to Login</Text>
       </TouchableOpacity>
