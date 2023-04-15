@@ -6,18 +6,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../home';
 import Course from '../course';
 import Search from '../search';
-import Profile from '../profile';
+import {Profile, ChangePassword} from '../profile';
 
 const Tab = createBottomTabNavigator();
 
 const NavBar = ({route, navigation}) => {
   let {role} = route.params ?? 'student';
   let {email} = route.params ?? 'abc@gmail.com';
-  let {password} = route.params ?? 'abc';
+  let {password} = route.params ?? 'abcdef';
 
   if (!role) role = 'student';
   if (!email) email = 'abc@gmail.com';
-  if (!password) password = 'abc';
+  if (!password) password = 'abcdef';
 
   const [bottomMarginStatus, setbottomMarginStatus] = useState(12);
   useEffect(() => {
