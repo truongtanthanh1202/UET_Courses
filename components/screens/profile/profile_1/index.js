@@ -8,6 +8,7 @@ import {
   Image,
   StatusBar,
   Platform,
+  TextInput,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -36,7 +37,7 @@ const Profile = ({route, navigation}) => {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            // props.navigation.navigate('Profile3');
+            navigation.navigate('Setting', {});
           }}>
           <Ionicons name="settings-outline" size={24} color="#333" />
         </TouchableOpacity>
@@ -113,14 +114,14 @@ const Profile = ({route, navigation}) => {
             style={{
               flex: 1,
               paddingHorizontal: 20,
-              marginTop: 20,
+              marginVertical: 20,
             }}>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 width: '100%',
-                backgroundColor: 'lightblue',
+                marginBottom: 8,
               }}>
               <Text
                 style={{
@@ -131,7 +132,10 @@ const Profile = ({route, navigation}) => {
                 Profile Information
               </Text>
 
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('ChangeProfile', {});
+                }}>
                 <Ionicons
                   name="create-outline"
                   size={24}
@@ -139,6 +143,34 @@ const Profile = ({route, navigation}) => {
                   color={'white'}
                 />
               </TouchableOpacity>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Your full name</Text>
+              <TextInput
+                style={styles.inputField}
+                value="Thanh Truong"
+                editable={false}
+                placeholderTextColor="black"></TextInput>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Email address</Text>
+              <TextInput
+                style={styles.inputField}
+                value={email}
+                editable={false}
+                placeholderTextColor="black"></TextInput>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Password</Text>
+              <TextInput
+                style={styles.inputField}
+                secureTextEntry={true}
+                value={password}
+                editable={false}
+                placeholderTextColor="black"></TextInput>
             </View>
           </View>
         </View>
