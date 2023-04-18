@@ -19,6 +19,7 @@ const Setting = ({route, navigation}) => {
   const {fullname} = route.params;
 
   const [darkmodeState, setDarkModeState] = useState(false);
+  const [internetStatus, setInternetStatus] = useState(true);
 
   const gobackHandler = () => {
     navigation.goBack();
@@ -83,6 +84,14 @@ const Setting = ({route, navigation}) => {
             iconRight="chevron-forward-outline"
             onPress={() => {
               navigation.navigate('ChangePassword');
+            }}
+          />
+          <SettingButtonBoolean
+            label="Only use wifi to up/down load"
+            iconRight="chevron-forward-outline"
+            isSelected={internetStatus}
+            onPress={() => {
+              setInternetStatus(!internetStatus);
             }}
           />
           <SettingButtonText
