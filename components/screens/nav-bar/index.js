@@ -41,13 +41,12 @@ const NavBar = ({route, navigation}) => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          bottom: bottomMarginStatus,
-          marginHorizontal: 12,
           paddingHorizontal: 20,
           elevation: 0.2,
           backgroundColor: '#3788ff',
-          borderRadius: 50,
-          minHeight: Platform.OS === 'ios' ? 60 : 68,
+          borderTopRightRadius: 40,
+          borderTopLeftRadius: 40,
+          minHeight: Platform.OS === 'ios' ? 50 : 58,
         },
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
