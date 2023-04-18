@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -15,9 +15,29 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
 const ChangeProfile = ({route, navigation}) => {
-  const {fullname} = route.params;
+  const {role} = route.params;
   const {email} = route.params;
   const {password} = route.params;
+  const {fullname} = route.params;
+
+  const [name, setName] = useState(fullname);
+  const [textErrorName, setTextErrorName] = useState('');
+
+  const gobackHandler = () => {
+    navigation.goBack();
+  };
+  const saveHandler = () => {
+    navigation.navigate('NavBar', {
+      screen: 'Profile',
+      params: {
+        role: role,
+        email: email,
+        password: password,
+        fullname: name,
+      },
+      merge: true,
+    });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,11 +47,7 @@ const ChangeProfile = ({route, navigation}) => {
         backgroundColor="#E4F1F9"
       />
       <View style={styles.top}>
-        <TouchableOpacity
-          style={styles.btnBack}
-          onPress={() => {
-            navigation.goBack();
-          }}>
+        <TouchableOpacity style={styles.btnBack} onPress={gobackHandler}>
           <Ionicons
             name="chevron-back-outline"
             size={32}
@@ -65,8 +81,65 @@ const ChangeProfile = ({route, navigation}) => {
         <TouchableOpacity style={styles.buttonChange}>
           <Text style={styles.textInnerButton}>Change profile picture</Text>
         </TouchableOpacity>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputField}
+            value={name}
+            onChangeText={text => {
+              setName(text);
+              setTextErrorName(
+                text.length > 4 ? '' : 'enter a valide fullname',
+              );
+            }}></TextInput>
+          <Text style={styles.inputErrorText}>{textErrorName}</Text>
+        </View>
       </View>
-      <View style={styles.bottom}></View>
+      <View style={styles.bottom}>
+        <TouchableOpacity
+          onPress={gobackHandler}
+          style={{
+            height: 42,
+            minWidth: 100,
+            marginLeft: '24%',
+            marginRight: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#fff',
+            borderRadius: 20,
+          }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#000',
+              paddingHorizontal: 16,
+            }}>
+            Cancel
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={saveHandler}
+          style={{
+            height: 42,
+            minWidth: 100,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#3787ff',
+            borderRadius: 20,
+          }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#fff',
+              paddingHorizontal: 16,
+            }}>
+            Save
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };

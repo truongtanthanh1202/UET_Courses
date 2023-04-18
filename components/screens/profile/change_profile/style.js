@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,15 +10,14 @@ const styles = StyleSheet.create({
   top: {
     flex: 15,
     justifyContent: 'center',
-    backgroundColor: 'lightblue',
   },
   mid: {
     flex: 75,
-    alignItems: 'center',
   },
   bottom: {
     flex: 10,
-    backgroundColor: 'lightyellow',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   btnBack: {
     marginHorizontal: 20,
@@ -42,11 +41,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     alignItems: 'center',
     borderRadius: 20,
+    maxWidth: 200,
+    alignSelf: 'center',
   },
   textInnerButton: {
     color: 'white',
     fontFamily: 'Poppins-Medium',
     fontSize: 14,
+  },
+  inputContainer: {
+    // backgroundColor: '#fff',
+    marginHorizontal: 24,
+    marginTop: 20,
+  },
+  inputField: {
+    height: Platform.OS === 'ios' ? 48 : 56,
+    paddingHorizontal: 4,
+    borderBottomColor: '#555',
+    borderBottomWidth: 1,
+    fontFamily: 'Poppins-Medium',
+    fontSize: 16,
+    color: '#444',
+  },
+  inputErrorText: {
+    marginTop: 4,
+    color: '#3787ff',
+    fontFamily: 'Poppins-Regular',
+    fontSize: 12,
   },
 });
 

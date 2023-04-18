@@ -14,10 +14,12 @@ const NavBar = ({route, navigation}) => {
   let {role} = route.params ?? 'student';
   let {email} = route.params ?? 'abc@gmail.com';
   let {password} = route.params ?? 'abcdef';
+  let {fullname} = route.params ?? 'Thanh Truong';
 
   if (!role) role = 'student';
   if (!email) email = 'abc@gmail.com';
   if (!password) password = 'abcdef';
+  if (!fullname) fullname = 'Thanh Truong';
 
   const [bottomMarginStatus, setbottomMarginStatus] = useState(12);
   useEffect(() => {
@@ -94,22 +96,42 @@ const NavBar = ({route, navigation}) => {
       <Tab.Screen
         name="Home"
         component={Home}
-        initialParams={{role: role, email: email, password: password}}
+        initialParams={{
+          role: role,
+          email: email,
+          password: password,
+          fullname: fullname,
+        }}
       />
       <Tab.Screen
         name="Search"
         component={Search}
-        initialParams={{role: role, email: email, password: password}}
+        initialParams={{
+          role: role,
+          email: email,
+          password: password,
+          fullname: fullname,
+        }}
       />
       <Tab.Screen
         name="Course"
         component={Course}
-        initialParams={{role: role, email: email, password: password}}
+        initialParams={{
+          role: role,
+          email: email,
+          password: password,
+          fullname: fullname,
+        }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        initialParams={{role: role, email: email, password: password}}
+        initialParams={{
+          role: role,
+          email: email,
+          password: password,
+          fullname: fullname,
+        }}
       />
     </Tab.Navigator>
   );

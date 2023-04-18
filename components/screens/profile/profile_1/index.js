@@ -19,6 +19,7 @@ const Profile = ({route, navigation}) => {
   const {role} = route.params;
   const {email} = route.params;
   const {password} = route.params;
+  const {fullname} = route.params;
   function renderHeader() {
     return (
       <View
@@ -37,7 +38,12 @@ const Profile = ({route, navigation}) => {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Setting', {});
+            navigation.navigate('Setting', {
+              role: role,
+              email: email,
+              password: password,
+              fullname: fullname,
+            });
           }}>
           <Ionicons name="settings-outline" size={24} color="#333" />
         </TouchableOpacity>
@@ -65,7 +71,7 @@ const Profile = ({route, navigation}) => {
                 height: Platform.OS === 'ios' ? 100 : 120,
               }}></Image>
           </View>
-          <Text style={styles.text1}>Thanh Truong</Text>
+          <Text style={styles.text1}>{fullname}</Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
@@ -134,7 +140,12 @@ const Profile = ({route, navigation}) => {
 
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('ChangeProfile', {});
+                  navigation.navigate('ChangeProfile', {
+                    role: role,
+                    email: email,
+                    password: password,
+                    fullname: fullname,
+                  });
                 }}>
                 <Ionicons
                   name="create-outline"
@@ -149,7 +160,7 @@ const Profile = ({route, navigation}) => {
               <Text style={styles.titleInputField}>Your full name</Text>
               <TextInput
                 style={styles.inputField}
-                value="Thanh Truong"
+                value={fullname}
                 editable={false}
                 placeholderTextColor="black"></TextInput>
             </View>
