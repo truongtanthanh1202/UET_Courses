@@ -16,6 +16,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#e4f1f9',
   },
+  describeContainer: {
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    marginTop: 20,
+    paddingHorizontal: 24,
+  },
+  describeContainerLeft: {
+    flex: 60,
+    paddingLeft: 20,
+  },
+  describeContainerRigt: {
+    flex: 40,
+    alignItems: 'center',
+  },
 });
 
 export default styles;

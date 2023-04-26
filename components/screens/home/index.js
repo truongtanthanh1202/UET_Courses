@@ -11,6 +11,8 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dropdown} from 'react-native-element-dropdown';
 import {ProgressBar} from '../../atoms';
+import CourseItem from '../../atoms/CourseItem';
+import HomeMeeting from '../../../assets/img/home_meeting';
 
 import styles from './style';
 
@@ -221,52 +223,195 @@ const renderOngoingCourses = () => {
       <ScrollView
         horizontal={true}
         style={{minHeight: 30, backgroundColor: 'transparent', marginRight: 8}}>
-        {/* {tags.courses((tag, index) => {
-          return ();
-        })} */}
+        {courses.map((course, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              activeOpacity={0.6}
+              style={{
+                width: 280,
+                backgroundColor: '#3787ff',
+                paddingHorizontal: 12,
+                paddingVertical: 8,
+                borderRadius: 10,
+                marginRight: 20,
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 14,
+                  color: '#fff',
+                }}>
+                {course.description}
+              </Text>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: 12,
+                  marginBottom: 8,
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 12,
+                    color: '#fff',
+                  }}>
+                  {35} Lesson
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 12,
+                    color: '#fff',
+                  }}>
+                  {25} Lesson
+                </Text>
+              </View>
+
+              <ProgressBar
+                progress="60%"
+                containerStyle={{
+                  backgroundColor: 'white',
+                }}
+                progressStyle={{
+                  backgroundColor: '#222',
+                }}
+              />
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
+};
+
+const renderSuitableCourses = () => {
+  return (
+    <View>
+      <View
+        style={{
+          backgroundColor: 'white',
+          height: 56,
+        }}>
+        <Text
+          style={{
+            position: 'absolute',
+            left: 24,
+            bottom: 0,
+            fontFamily: 'Poppins-Medium',
+            fontSize: 16,
+            color: '#000',
+          }}>
+          Best for you
+        </Text>
         <TouchableOpacity
           style={{
-            backgroundColor: '#3787ff',
-            paddingHorizontal: 12,
-            paddingVertical: 8,
-            borderRadius: 10,
+            position: 'absolute',
+            bottom: 4,
+            right: 24,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}>
           <Text
-            style={{fontFamily: 'Poppins-Medium', fontSize: 14, color: '#fff'}}>
-            Datastructure and Algorithm
+            style={{
+              fontFamily: 'Comportaa-Medium',
+              fontSize: 16,
+              color: '#3787ff',
+            }}>
+            see more
           </Text>
-
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text
-              style={{
-                fontFamily: 'Poppins-Medium',
-                fontSize: 12,
-                color: '#fff',
-              }}>
-              {35} Lesson
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Poppins-Medium',
-                fontSize: 12,
-                color: '#fff',
-              }}>
-              {25} Lesson
-            </Text>
-          </View>
-
-          <ProgressBar
-            progress={100}
-            containerStyle={{
-              width: '100%',
-              backgroundColor: 'white',
-            }}
-            progressStyle={{
-              backgroundColor: '#222',
-            }}
-          />
         </TouchableOpacity>
-      </ScrollView>
+      </View>
+
+      <View
+        style={{
+          backgroundColor: '#e4f1f8',
+          minHeight: 220,
+          paddingBottom: 8,
+        }}>
+        <ScrollView
+          horizontal={true}
+          style={{marginLeft: 10, marginVertical: 4}}>
+          {courses.map(course => {
+            return (
+              <View key={course.id}>
+                <CourseItem
+                  source={course.thumbnail}
+                  title={course.description}
+                  owner={course.id_teacher}
+                  rating={course.rate}
+                />
+              </View>
+            );
+          })}
+        </ScrollView>
+      </View>
+    </View>
+  );
+};
+const renderPopularCourses = () => {
+  return (
+    <View>
+      <View
+        style={{
+          backgroundColor: 'white',
+          height: 56,
+        }}>
+        <Text
+          style={{
+            position: 'absolute',
+            left: 24,
+            bottom: 0,
+            fontFamily: 'Poppins-Medium',
+            fontSize: 16,
+            color: '#000',
+          }}>
+          Trending course
+        </Text>
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            bottom: 4,
+            right: 24,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text
+            style={{
+              fontFamily: 'Comportaa-Medium',
+              fontSize: 16,
+              color: '#3787ff',
+            }}>
+            see more
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <View
+        style={{
+          backgroundColor: '#e4f1f8',
+          minHeight: 220,
+          paddingBottom: 8,
+        }}>
+        <ScrollView
+          horizontal={true}
+          style={{marginLeft: 10, marginVertical: 4}}>
+          {courses.map(course => {
+            return (
+              <View key={course.id}>
+                <CourseItem
+                  source={course.thumbnail}
+                  title={course.description}
+                  owner={course.id_teacher}
+                  rating={course.rate}
+                />
+              </View>
+            );
+          })}
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -291,6 +436,37 @@ const Home = ({route, navigation}) => {
 
         {/* Ongoing Courses section */}
         {renderOngoingCourses()}
+
+        <View style={styles.describeContainer}>
+          <View style={styles.describeContainerLeft}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 20,
+                color: '#333',
+              }}>
+              Meetup
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 14,
+                color: '#333',
+              }}>
+              Off-line exchange of learning experiences
+            </Text>
+          </View>
+
+          <View style={styles.describeContainerRigt}>
+            <HomeMeeting width={100} height={100} />
+          </View>
+        </View>
+
+        {/* Other course section */}
+        {renderSuitableCourses()}
+        {renderPopularCourses()}
+
+        <View style={{height: 40}}></View>
       </ScrollView>
     </SafeAreaView>
   );
