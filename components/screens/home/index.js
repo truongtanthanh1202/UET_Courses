@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dropdown} from 'react-native-element-dropdown';
+import {ProgressBar} from '../../atoms';
 
 import styles from './style';
 
@@ -205,6 +206,71 @@ const renderTopSection = () => {
   );
 };
 
+const renderOngoingCourses = () => {
+  return (
+    <View style={{marginLeft: 24, marginTop: 20}}>
+      <Text
+        style={{
+          fontFamily: 'Poppins-Medium',
+          fontSize: 20,
+          color: '#222',
+          marginBottom: 16,
+        }}>
+        Ongoing Courses
+      </Text>
+      <ScrollView
+        horizontal={true}
+        style={{minHeight: 30, backgroundColor: 'transparent', marginRight: 8}}>
+        {/* {tags.courses((tag, index) => {
+          return ();
+        })} */}
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#3787ff',
+            paddingHorizontal: 12,
+            paddingVertical: 8,
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{fontFamily: 'Poppins-Medium', fontSize: 14, color: '#fff'}}>
+            Datastructure and Algorithm
+          </Text>
+
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 12,
+                color: '#fff',
+              }}>
+              {35} Lesson
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 12,
+                color: '#fff',
+              }}>
+              {25} Lesson
+            </Text>
+          </View>
+
+          <ProgressBar
+            progress={100}
+            containerStyle={{
+              width: '100%',
+              backgroundColor: 'white',
+            }}
+            progressStyle={{
+              backgroundColor: '#222',
+            }}
+          />
+        </TouchableOpacity>
+      </ScrollView>
+    </View>
+  );
+};
+
 const Home = ({route, navigation}) => {
   const {role} = route.params;
   const {email} = route.params;
@@ -222,6 +288,9 @@ const Home = ({route, navigation}) => {
 
         {/* Top section */}
         {renderTopSection()}
+
+        {/* Ongoing Courses section */}
+        {renderOngoingCourses()}
       </ScrollView>
     </SafeAreaView>
   );
