@@ -72,9 +72,11 @@ const Profile = ({route, navigation}) => {
               }}></Image>
           </View>
           <Text style={styles.text1}>{fullname}</Text>
-          <ProgressBar
-            progress="60%"
-            containerStyle={{maginTop: 10}}></ProgressBar>
+          <View style={{width: 240, alignSelf: 'center'}}>
+            <ProgressBar
+              progress="60%"
+              containerStyle={{maginTop: 10}}></ProgressBar>
+          </View>
           <Text
             style={{
               textAlign: 'center',

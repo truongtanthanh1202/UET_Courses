@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-const ProgressBar = ({containerStyle, progress}) => {
+const ProgressBar = ({containerStyle, progress, progressStyle}) => {
   return (
     <View
       style={{
-        width: '65%',
+        width: '100%',
         height: 8,
         alignSelf: 'center',
         borderRadius: 10,
@@ -19,6 +19,7 @@ const ProgressBar = ({containerStyle, progress}) => {
           width: progress,
           borderRadius: 10,
           backgroundColor: '#3787ff',
+          ...progressStyle,
         }}></View>
     </View>
   );
