@@ -111,6 +111,7 @@ const Profile = ({route, navigation}) => {
         />
         <View style={{margin: 14}}></View>
 
+        {/* profile infor (full name, email, password) section*/}
         <View
           style={{
             minHeight: 200,
