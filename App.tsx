@@ -11,6 +11,7 @@ import { ChangePassword, ChangeProfile, Setting } from './components/screens/pro
 import MyCourse from './components/screens/course/my_course';
 import Timetable from './components/screens/timetable';
 import CourseDetails from './components/screens/course/course_details';
+import Lesson from './components/screens/course/lesson';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ const App = () => {
         <Stack.Screen name="ChangePassword" component={ChangePassword}/>
         <Stack.Screen name="ChangeProfile" component={ChangeProfile}/>
         <Stack.Screen name="CourseDetails" component={CourseDetails}/>
+        <Stack.Screen name="Lesson" component={Lesson}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
