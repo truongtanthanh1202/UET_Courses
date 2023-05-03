@@ -5,8 +5,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Video from 'react-native-video';
 
 import { Tabs } from 'react-native-collapsible-tab-view';
+import VideoViewer from '../../../atoms/VideoViewer';
 
-const courseVideo = require('./courseVideo.mp4');
+const courseVideo = require('../../../../assets/video/courseVideo.mp4');
 const avatar = require('../../../../assets/img/avata_student_default.jpg');
 
 const Overview = () => (
@@ -183,13 +184,19 @@ const mockLessons = [
   },
 ]
 
-const Lessons = () => (
+const Lessons = ({navigation}) => (
   <View style={{ flex: 1, marginHorizontal: 20, gap: 16, marginBottom: 48, paddingTop: 32}}>
     {mockLessons.map((lesson, index) => {
       return (
-        <View style={{flexDirection: 'column', gap: 12}}>
+        <View style={{flexDirection: 'column', gap: 12}} key={index}>
           <View style={{flexDirection: 'row', gap: 8, marginRight: 12}}>
-            <TouchableOpacity >
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Lesson', {
+                  lessonIndex: index + 1
+                })
+              }}
+            >
               <Image source={{uri: lesson.thumbnail}} resizeMode="cover" style={{width: 150, height: 90}} />
             </TouchableOpacity>
             <View style={{flexDirection: 'column', justifyContent: 'space-between', paddingVertical: 4}}>
@@ -310,7 +317,7 @@ const CourseDetails = ({route, navigation}) => {
     return (
       <>
         {renderHeader()}
-        {renderVideoPlayer()}
+        <VideoViewer />
 
         {renderIntroduction()}
       </>
@@ -334,7 +341,7 @@ const CourseDetails = ({route, navigation}) => {
 
         <Tabs.Tab name={'Lessons'}>
           <Tabs.ScrollView>
-            <Lessons />
+            <Lessons navigation={navigation}/>
           </Tabs.ScrollView>
         </Tabs.Tab>
       </Tabs.Container>
