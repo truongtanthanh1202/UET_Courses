@@ -6,13 +6,16 @@ import MyCourse from './my_course';
 import Schedule from './schedule';
 import styles from './style';
 
+import ConferenceSpeaker from '../../../assets/img/conference_speaker';
+import UIDesign from '../../../assets/img/ui_design';
+
 import { Dropdown } from 'react-native-element-dropdown';
 
 const Tab = createMaterialTopTabNavigator();
 
 const data = [
   {label: 'English', value: 'English'},
-  {label: 'French', value: 'French'},
+  {label: 'Vietnamese', value: 'Vietnamese'},
 ];
 
 const Course = ({route, navigation}) => {
@@ -28,24 +31,35 @@ const Course = ({route, navigation}) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          marginVertical: 4,
+          alignItems: 'center',
+          paddingHorizontal: 24,
         }}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Setting', { // WARNING: Should not navigate to setting here
-              role: role,
-              email: email,
-              password: password,
-              fullname: fullname,
-            });
-          }}>
-          <Ionicons name="menu-outline" size={24} color="#333" />
+        <TouchableOpacity style={{flex: 35}} onPress={() => {}}>
+          <Ionicons name="menu-outline" size={28} color="#333" />
         </TouchableOpacity>
         <Dropdown
-          style={styles.dropdown}
-          placeholderStyle={styles.placeholderStyle}
-          selectedTextStyle={styles.selectedTextStyle}
-          iconStyle={styles.iconStyle}
+          style={{
+            flex: 40,
+            backgroundColor: '#3787ff',
+            height: 26,
+            borderRadius: 12,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingHorizontal: 4,
+          }}
+          placeholderStyle={{
+            fontSize: 14,
+            color: 'white',
+            fontFamily: 'Poppins-Medium',
+            textAlign: 'center',
+          }}
+          selectedTextStyle={{
+            fontSize: 14,
+            color: 'white',
+            fontFamily: 'Poppins-Medium',
+            textAlign: 'center',
+          }}
+          iconStyle={{width: 20, height: 20, tintColor: 'white'}}
           labelField="label"
           valueField="value"
           value={language}
@@ -53,24 +67,20 @@ const Course = ({route, navigation}) => {
           placeholder="English"
           renderLeftIcon={() => (
             <View style={{paddingRight: 4}}>
-              <Ionicons name="globe-outline" size={20} color='white'/>
+              <Ionicons name="globe-outline" size={18} color="white" />
             </View>
           )}
           onChange={item => {
-            setLanguage(item.value)
+            setLanguage(item.value);
           }}
         />
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Setting', { // Turn notification on here!!
-              role: role,
-              email: email,
-              password: password,
-              fullname: fullname,
-            });
-          }}>
-          <Ionicons name="notifications-outline" size={24} color="#333" />
-        </TouchableOpacity>
+        <View style={{flex: 35, height: 28}}>
+          <TouchableOpacity
+            style={{position: 'absolute', right: 0}}
+            onPress={() => {}}>
+            <Ionicons name="notifications-outline" size={28} color="#333" />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -132,16 +142,6 @@ const Course = ({route, navigation}) => {
     );
   }
   return (
-    // <View
-    //   style={{
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor: '#e4f1f9',
-    //   }}>
-    //   <Ionicons name="terminal-outline" size={32} />
-    //   <Text>Course</Text>
-    // </View>
     <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="dark-content"
@@ -150,9 +150,116 @@ const Course = ({route, navigation}) => {
       />
       <View style={styles.top}>
         {renderHeader()}
-        <ScrollView>
+        <ScrollView style={{paddingHorizontal: 18}}>
           {renderNavigators()}
         </ScrollView>
+      </View>
+
+      <View style={styles.mid}>
+        {/* Ugly hardcode!*/}
+        <View style={[styles.allCourse, { marginTop: -24 }]}>
+          <View style={{
+            flex: 1,
+            flexDirection: 'column',
+          }}>
+            <View style={{flex: 2 , flexDirection: 'row'}}>
+              <ConferenceSpeaker width='100%' height='100%' />
+            </View>
+            <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#3787ff', borderBottomLeftRadius: 8, borderBottomRightRadius: 8}}>
+              <View style={{flex: 1, flexDirection: 'column', margin: 8}}>
+                <View style={{flex: 0, flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style={styles.courseText}> Marketing </Text>
+                  <Text style={styles.courseText}> $50 </Text>
+                </View>
+                <Text style={[styles.courseText, styles.smallText]}> By: Salim </Text>
+              </View>
+              <View style={styles.horizontalDivider} />
+              <View style={{flex: 0, flexDirection: 'row', justifyContent: 'space-between', margin: 8}}>
+                <Text style={[styles.courseText, styles.smallText]}> 50 Lessons </Text>
+                <View style={{flex: 0, flexDirection: 'row', alignItems: 'center'}}>
+                  <Ionicons name="star" size={24} color="orange" />
+                  <Text style={[styles.courseText, styles.smallText]}> 4.5 </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View style={{
+            flex: 1,
+            flexDirection: 'column',
+          }}>
+            <View style={{flex: 2 , flexDirection: 'row'}}>
+              <UIDesign width='100%' height='100%' />
+            </View>
+            <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#3787ff', borderBottomLeftRadius: 8, borderBottomRightRadius: 8}}>
+              <View style={{flex: 1, flexDirection: 'column', margin: 8}}>
+                <View style={{flex: 0, flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style={styles.courseText}> UI/UX Design </Text>
+                  <Text style={styles.courseText}> $80 </Text>
+                </View>
+                <Text style={[styles.courseText, styles.smallText]}> By: Salim </Text>
+              </View>
+              <View style={styles.horizontalDivider} />
+              <View style={{flex: 0, flexDirection: 'row', justifyContent: 'space-between', margin: 8}}>
+                <Text style={[styles.courseText, styles.smallText]}> 34 Lessons </Text>
+                <View style={{flex: 0, flexDirection: 'row', alignItems: 'center'}}>
+                  <Ionicons name="star" size={24} color="orange" />
+                  <Text style={[styles.courseText, styles.smallText]}> 4.5 </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* Course Details */}
+        <View style={styles.courseDetails}>
+          <View style={styles.verticalLine} />
+          <View style={styles.verticalWrap}>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> All Lesson of Marketing </Text>
+                <Text> Here 52 lessons and complete 32 lessons </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> What is marketing?  56 Minutes </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> What is your definition of marketing? 10 Min </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> What are 3 Definitions of marketing? 56 Min </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> What are 4 types of marketing? 56 Min </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> Why the marketing is important? 56 Min </Text>
+              </View>
+            </View>
+            <View style={styles.itemWrap}>
+              <View style={styles.firstPoint}></View>
+              <View style={{ marginLeft: 10, flex: 1, gap: 4 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold' }}> Why is marketing neccesary? 56 Min </Text>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -5,9 +5,15 @@ export default styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    flex: 35,
-    paddingHorizontal: 24,
+    flex: 18,
+    // paddingHorizontal: 24,
     justifyContent: 'center',
+    gap: 24,
+  },
+  mid: {
+    flex: 82,
+    backgroundColor: "#e4f1f9",
+    gap: 12,
   },
   dropdown: {
     flex: 1,
@@ -37,5 +43,62 @@ export default styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 8,
     borderRadius: 12,
+  },
+  allCourse: {
+    flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    gap: 12,
+    maxHeight: 300,
+  },
+  courseText: {
+    color: 'white',
+    fontFamily: 'Poppins-Medium',
+    fontSize: 16
+  },
+  smallText: {
+    fontSize: 13,
+  },
+  horizontalDivider: {
+    borderBottomColor: 'white',
+    borderBottomWidth: 1,
+  },
+  courseDetails: {
+    flex: 1,
+    // flexDirection: 'row',
+    marginHorizontal: 20,
+    gap: 12,
+    backgroundColor: 'white',
+    borderRadius: 32,
+    marginBottom: 18,
+    // maxHeight: 300,
+  },
+  verticalLine: {
+    backgroundColor: '#e4f1f9',
+    width: 2,
+    height: '95%',
+    position: 'absolute',
+    marginLeft: 35,
+    marginTop: 20,
+  },
+  verticalWrap: {
+    justifyContent: 'space-between',
+    height: '100%',
+  },
+  itemWrap: {
+    // width: 200,
+    height: 'auto',
+    // borderWidth: 1,
+    marginLeft: 20,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  firstPoint: {
+    backgroundColor: 'black',
+    borderRadius: 20,
+    height: 10,
+    width: 10,
+    marginLeft: 10,
   }
 });
