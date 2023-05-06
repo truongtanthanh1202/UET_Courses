@@ -29,7 +29,9 @@ const CourseItem = props => {
         backgroundColor: 'white',
         marginHorizontal: 10,
         ...shadow,
-      }}>
+      }}
+      onPress={props.onPress}
+    >
       <Image
         source={{
           uri: _source,

@@ -208,7 +208,7 @@ const renderTopSection = () => {
   );
 };
 
-const renderOngoingCourses = () => {
+const renderOngoingCourses = ({ role, email, password, fullname, navigation }) => {
   return (
     <View style={{marginLeft: 24, marginTop: 20}}>
       <Text
@@ -235,7 +235,16 @@ const renderOngoingCourses = () => {
                 paddingVertical: 8,
                 borderRadius: 10,
                 marginRight: 20,
-              }}>
+              }}
+              onPress={() => {
+                navigation.navigate('CourseDetails', {
+                  role,
+                  email,
+                  password,
+                  fullname,
+                })
+              }}
+            >
               <Text
                 style={{
                   fontFamily: 'Poppins-Medium',
@@ -287,7 +296,7 @@ const renderOngoingCourses = () => {
   );
 };
 
-const renderSuitableCourses = () => {
+const renderSuitableCourses = ({ role, email, password, fullname, navigation }) => {
   return (
     <View>
       <View
@@ -313,7 +322,8 @@ const renderSuitableCourses = () => {
             right: 24,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <Text
             style={{
               fontFamily: 'Comportaa-Medium',
@@ -342,6 +352,14 @@ const renderSuitableCourses = () => {
                   title={course.description}
                   owner={course.id_teacher}
                   rating={course.rate}
+                  onPress={() => {
+                    navigation.navigate('CourseDetails', {
+                      role,
+                      email,
+                      password,
+                      fullname,
+                    })
+                  }}
                 />
               </View>
             );
@@ -351,7 +369,7 @@ const renderSuitableCourses = () => {
     </View>
   );
 };
-const renderPopularCourses = () => {
+const renderPopularCourses = ({ role, email, password, fullname, navigation }) => {
   return (
     <View>
       <View
@@ -406,6 +424,14 @@ const renderPopularCourses = () => {
                   title={course.description}
                   owner={course.id_teacher}
                   rating={course.rate}
+                  onPress={() => {
+                    navigation.navigate('CourseDetails', {
+                      role,
+                      email,
+                      password,
+                      fullname,
+                    })
+                  }}
                 />
               </View>
             );
@@ -420,6 +446,7 @@ const Home = ({route, navigation}) => {
   const {role} = route.params;
   const {email} = route.params;
   const {password} = route.params;
+  const {fullname} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -435,7 +462,7 @@ const Home = ({route, navigation}) => {
         {renderTopSection()}
 
         {/* Ongoing Courses section */}
-        {renderOngoingCourses()}
+        {renderOngoingCourses({ role, email, password, fullname, navigation })}
 
         <View style={styles.describeContainer}>
           <View style={styles.describeContainerLeft}>
@@ -463,8 +490,8 @@ const Home = ({route, navigation}) => {
         </View>
 
         {/* Other course section */}
-        {renderSuitableCourses()}
-        {renderPopularCourses()}
+        {renderSuitableCourses({ role, email, password, fullname, navigation })}
+        {renderPopularCourses({ role, email, password, fullname, navigation })}
 
         <View style={{height: 40}}></View>
       </ScrollView>
