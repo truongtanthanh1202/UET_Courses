@@ -48,7 +48,7 @@ const Search = props => {
 
   function renderChoiceYourCourse() {
     return (
-      <View style={{ marginLeft: 24, marginTop: 20 }}>
+      <View style={{ marginLeft: 24, marginTop: 0 }}>
         <Text
           style={{
             fontFamily: 'Poppins-Medium',
@@ -56,7 +56,7 @@ const Search = props => {
             color: '#222',
             marginBottom: 16,
           }}>
-          Choise your course
+          Choice your course
         </Text>
       </View>
     )
@@ -102,7 +102,11 @@ const Search = props => {
                   onPress={() => setToggle(true)}
                   name="search-outline"
                   size={32}
-                  style={styles.inputIcon}
+                  style={{
+                    position: 'absolute',
+                    top: '6%',
+                    left: '4%',
+                  }}
                 />
                 <Text
                   style={{
@@ -119,7 +123,7 @@ const Search = props => {
                   size={32}
                   style={{
                     position: 'absolute',
-                    top: '14%',
+                    top: '6%',
                     left: '87%',
                   }}
                 />
@@ -139,9 +143,9 @@ const Search = props => {
                 </TouchableHighlight>
               </View>
               <ScrollView>
-                <View style={{ width: "100%", padding: 10 }}>
+                <View style={{ width: "100%", padding: 7 }}>
                   <ComponentProduct />
-                  <ComponentProduct />
+                  <ComponentJava />
                   <ComponentProduct />
                   <ComponentProduct />
                 </View>
@@ -270,7 +274,7 @@ export const styles2 = StyleSheet.create({
     fontSize: 17,
     fontWeight: "600",
     backgroundColor: "#fff",
-    marginTop: 12,
+    marginTop: 10,
     marginBottom: 12
   }
 })
@@ -291,6 +295,53 @@ const ComponentProduct = (props) => {
     </View>
   )
 }
+
+const ComponentJava = (props) => {
+  return (
+    <View style={styles3.container}>
+      <Image style={styles3.image} source={{ uri: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg" }} />
+      <View style={styles3.rightSide}>
+        <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>Java Development</Text>
+        <Text style={{ marginBottom: 12 }}>Robertson Connsin</Text>
+        <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
+          <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>$190</Text>
+          <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>18 hours</Text>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+const products = [
+  {
+    title: "Product design v1.0",
+    author: "Robertson Connsin",
+    price: "$190",
+    duration: "18 hours",
+    imageUrl: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg",
+  },
+  {
+    title: "Java Development",
+    author: "Robertson Connsin",
+    price: "$190",
+    duration: "18 hours",
+    imageUrl: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg",
+  },
+];
+
+const ProductComponents = products.map((product) => (
+  <View style={styles3.container} key={product.title}>
+    <Image style={styles3.image} source={{ uri: product.imageUrl }} />
+    <View style={styles3.rightSide}>
+      <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>{product.title}</Text>
+      <Text style={{ marginBottom: 12 }}>{product.author}</Text>
+      <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
+        <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>{product.price}</Text>
+        <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>{product.duration}</Text>
+      </View>
+    </View>
+  </View>
+));
 
 const ComponentProduct2 = (props) => {
   return (
