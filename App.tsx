@@ -10,11 +10,14 @@ import { Forgot_1, Forgot_2, Forgot_3 } from './components/screens/forgot-passwo
 import { ChangePassword, ChangeProfile, Setting } from './components/screens/profile';
 import MyCourse from './components/screens/course/my_course';
 import Timetable from './components/screens/timetable';
+import { ModalPortal } from 'react-native-modals';
+import Search2 from './components/screens/search/search_2';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
+    <>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {/* <Stack.Screen name="Splash1" component={Splash1} />
@@ -39,8 +42,12 @@ const App = () => {
         <Stack.Screen name="Setting" component={Setting}/>
         <Stack.Screen name="ChangePassword" component={ChangePassword}/>
         <Stack.Screen name="ChangeProfile" component={ChangeProfile}/>
+        <Stack.Screen name="Search2" component={Search2}/>
+
       </Stack.Navigator>
     </NavigationContainer>
+    <ModalPortal />
+    </>
   );
 };
 
