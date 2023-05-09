@@ -54,7 +54,7 @@ const Search = props => {
             fontFamily: 'Poppins-Medium',
             fontSize: 20,
             color: '#222',
-            marginBottom: 16,
+            marginBottom: 0,
           }}>
           Choice your course
         </Text>
@@ -144,10 +144,7 @@ const Search = props => {
               </View>
               <ScrollView>
                 <View style={{ width: "100%", padding: 7 }}>
-                  <ComponentProduct />
-                  <ComponentJava />
-                  <ComponentProduct />
-                  <ComponentProduct />
+                  {ProductComponents}
                 </View>
               </ScrollView>
               <FilterComponent visible={openFilter} setVisible={setOpenFilter} />
@@ -279,70 +276,6 @@ export const styles2 = StyleSheet.create({
   }
 })
 
-
-const ComponentProduct = (props) => {
-  return (
-    <View style={styles3.container}>
-      <Image style={styles3.image} source={{ uri: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg" }} />
-      <View style={styles3.rightSide}>
-        <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>Product design v1.0</Text>
-        <Text style={{ marginBottom: 12 }}>Robertson Connsin</Text>
-        <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
-          <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>$190</Text>
-          <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>18 hours</Text>
-        </View>
-      </View>
-    </View>
-  )
-}
-
-const ComponentJava = (props) => {
-  return (
-    <View style={styles3.container}>
-      <Image style={styles3.image} source={{ uri: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg" }} />
-      <View style={styles3.rightSide}>
-        <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>Java Development</Text>
-        <Text style={{ marginBottom: 12 }}>Robertson Connsin</Text>
-        <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
-          <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>$190</Text>
-          <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>18 hours</Text>
-        </View>
-      </View>
-    </View>
-  )
-}
-
-const products = [
-  {
-    title: "Product design v1.0",
-    author: "Robertson Connsin",
-    price: "$190",
-    duration: "18 hours",
-    imageUrl: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg",
-  },
-  {
-    title: "Java Development",
-    author: "Robertson Connsin",
-    price: "$190",
-    duration: "18 hours",
-    imageUrl: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg",
-  },
-];
-
-const ProductComponents = products.map((product) => (
-  <View style={styles3.container} key={product.title}>
-    <Image style={styles3.image} source={{ uri: product.imageUrl }} />
-    <View style={styles3.rightSide}>
-      <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>{product.title}</Text>
-      <Text style={{ marginBottom: 12 }}>{product.author}</Text>
-      <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
-        <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>{product.price}</Text>
-        <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>{product.duration}</Text>
-      </View>
-    </View>
-  </View>
-));
-
 const ComponentProduct2 = (props) => {
   return (
     <View style={styles4.container}>
@@ -380,6 +313,51 @@ const styles3 = StyleSheet.create({
 
   }
 })
+
+const products = [
+  {
+    title: "Product design v1.0",
+    author: "Robertson Connsin",
+    price: "$190",
+    duration: "18 hours",
+    imageUrl: "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg",
+  },
+  {
+    title: "Java Development",
+    author: "Nguyen Shane",
+    price: "$1300",
+    duration: "16 hours",
+    imageUrl: "https://img-b.udemycdn.com/course/750x422/2669808_fcbe_3.jpg",
+  },
+  {
+    title: "Visual Design",
+    author: "Bert Pullman",
+    price: "$250",
+    duration: "14 hours",
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/55da0cc3e4b07cfd7eba4fcb/1680887169965-2ZI92A2YJLOVKI3HAU87/image.jpg?format=1000w",
+  },
+  {
+    title: "Figma Learning",
+    author: "Limitless",
+    price: "$0",
+    duration: "102349 hours",
+    imageUrl: "https://spin.atomicobject.com/wp-content/uploads/Figma-Image.jpg",
+  },
+];
+
+const ProductComponents = products.map((product) => (
+  <View style={styles3.container} key={product.title}>
+    <Image style={styles3.image} source={{ uri: product.imageUrl }} />
+    <View style={styles3.rightSide}>
+      <Text style={{ fontWeight: "600", fontSize: 18, color: "#000", marginBottom: 12 }}>{product.title}</Text>
+      <Text style={{ marginBottom: 12 }}>{product.author}</Text>
+      <View style={{ display: "flex", alignItems: 'center', flexDirection: "row" }}>
+        <Text style={{ fontWeight: "600", color: "#2e89ff", fontSize: 18, }}>{product.price}</Text>
+        <Text style={{ padding: 5, borderRadius: 10, backgroundColor: "#2e89ff", color: "#fff", marginLeft: 12 }}>{product.duration}</Text>
+      </View>
+    </View>
+  </View>
+));
 
 const styles4 = StyleSheet.create({
   container: {
