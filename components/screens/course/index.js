@@ -158,10 +158,17 @@ const Course = ({route, navigation}) => {
       <View style={styles.mid}>
         {/* Ugly hardcode!*/}
         <View style={[styles.allCourse, { marginTop: -24 }]}>
-          <View style={{
-            flex: 1,
-            flexDirection: 'column',
-          }}>
+          <TouchableOpacity
+            style={{ flex: 1, flexDirection: 'column',}}
+            onPress={() => {
+              navigation.navigate('CourseDetails', {
+                role,
+                email,
+                password,
+                fullname,
+              })
+            }}
+          >
             <View style={{flex: 2 , flexDirection: 'row'}}>
               <ConferenceSpeaker width='100%' height='100%' />
             </View>
@@ -182,12 +189,19 @@ const Course = ({route, navigation}) => {
                 </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{
-            flex: 1,
-            flexDirection: 'column',
-          }}>
+          <TouchableOpacity
+            style={{ flex: 1, flexDirection: 'column',}}
+            onPress={() => {
+              navigation.navigate('CourseDetails', {
+                role,
+                email,
+                password,
+                fullname,
+              })
+            }}
+          >
             <View style={{flex: 2 , flexDirection: 'row'}}>
               <UIDesign width='100%' height='100%' />
             </View>
@@ -208,7 +222,7 @@ const Course = ({route, navigation}) => {
                 </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
 
         {/* Course Details */}
