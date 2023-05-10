@@ -48,7 +48,7 @@ const Search = props => {
 
   function renderChoiceYourCourse() {
     return (
-      <View style={{ marginLeft: 24, marginTop: 0 }}>
+      <View style={{ marginLeft: 10, marginTop: 0 }}>
         <Text
           style={{
             fontFamily: 'Poppins-Medium',
@@ -128,22 +128,22 @@ const Search = props => {
                   }}
                 />
 
-                {/*Choise your course*/}
+                {/*Choice your course*/}
                 {renderChoiceYourCourse()}
               </View>
               <View style={styles2.wrap}>
                 <TouchableHighlight>
-                  <Text onPress={() => handleActiveTab(1)} style={[styles2.item, { backgroundColor: activeTab === 1 ? "#2e89ff" : "#fff", color: activeTab === 1 ? "#fff" : "#000" }]}>All</Text>
+                  <Text onPress={() => handleActiveTab(1)} style={[styles2.item0, { backgroundColor: activeTab === 1 ? "#2e89ff" : "#fff", color: activeTab === 1 ? "#fff" : "#000" }]}>All</Text>
                 </TouchableHighlight>
                 <TouchableHighlight>
-                  <Text onPress={() => handleActiveTab(2)} style={[styles2.item, { backgroundColor: activeTab === 2 ? "#2e89ff" : "#fff", color: activeTab === 2 ? "#fff" : "#000" }]}>Popular</Text>
+                  <Text onPress={() => handleActiveTab(2)} style={[styles2.item0, { backgroundColor: activeTab === 2 ? "#2e89ff" : "#fff", color: activeTab === 2 ? "#fff" : "#000" }]}>Popular</Text>
                 </TouchableHighlight>
                 <TouchableHighlight>
-                  <Text onPress={() => handleActiveTab(3)} style={[styles2.item, { backgroundColor: activeTab === 3 ? "#2e89ff" : "#fff", color: activeTab === 3 ? "#fff" : "#000" }]}>News</Text>
+                  <Text onPress={() => handleActiveTab(3)} style={[styles2.item0, { backgroundColor: activeTab === 3 ? "#2e89ff" : "#fff", color: activeTab === 3 ? "#fff" : "#000" }]}>New</Text>
                 </TouchableHighlight>
               </View>
-              <ScrollView>
-                <View style={{ width: "100%", padding: 7 }}>
+              <ScrollView style={{width: "94%"}}>
+                <View style={{ width: "100%", padding: 0 }}>
                   {ProductComponents}
                 </View>
               </ScrollView>
@@ -155,6 +155,7 @@ const Search = props => {
                   style={{
                     flex: 1,
                     width: '100%',
+                    height: '100%',
                     justifyContent: 'flex-start',
                     alignItems: 'center',
                   }}>
@@ -264,7 +265,20 @@ export const styles2 = StyleSheet.create({
     borderRadius: 80,
     flexDirection: "row"
   },
+  item0: {
+    textAlign: "center",
+    width: 100,
+    marginRight: 12,
+    padding: 5,
+    borderRadius: 80,
+    fontSize: 17,
+    fontWeight: "600",
+    backgroundColor: "#fff",
+    marginTop: 10,
+    marginBottom: 12
+  },
   item: {
+    // width: 100,
     marginRight: 12,
     padding: 10,
     borderRadius: 80,
