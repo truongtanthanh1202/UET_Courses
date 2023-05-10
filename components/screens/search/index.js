@@ -142,8 +142,8 @@ const Search = props => {
                   <Text onPress={() => handleActiveTab(3)} style={[styles2.item0, { backgroundColor: activeTab === 3 ? "#2e89ff" : "#fff", color: activeTab === 3 ? "#fff" : "#000" }]}>New</Text>
                 </TouchableHighlight>
               </View>
-              <ScrollView>
-                <View style={{ width: "100%", padding: 7 }}>
+              <ScrollView style={{width: "94%"}}>
+                <View style={{ width: "100%", padding: 0 }}>
                   {ProductComponents}
                 </View>
               </ScrollView>
@@ -155,6 +155,7 @@ const Search = props => {
                   style={{
                     flex: 1,
                     width: '100%',
+                    height: '100%',
                     justifyContent: 'flex-start',
                     alignItems: 'center',
                   }}>

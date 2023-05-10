@@ -10,6 +10,10 @@ const FilterComponent = (props) => {
     const handleActiveTab = (tab) => {
         setActiveTab(tab)
     }
+    const [activeTab2, setActiveTab2] = useState(1)
+    const handleActiveTab2 = (tab) => {
+        setActiveTab2(tab)
+    }
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(100)
     const [values, setValues] = useState([20, 60]);
@@ -33,7 +37,7 @@ const FilterComponent = (props) => {
             <View style={{
                     width: Dimensions.get("window").width,
                     padding: 10,
-                    borderRadius: 30,
+                    borderRadius: 0,
                     backgroundColor: "#4B85F9",
                 }}>
                 <View style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row" }}>
@@ -56,10 +60,10 @@ const FilterComponent = (props) => {
                         <Text onPress={() => handleActiveTab(4)} style={[styles2.item, { backgroundColor: activeTab === 4 ? "#4B85F9" : "#fff", color: activeTab === 4 ? "#fff" : "#000" }]}>Music</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(4)} style={[styles2.item, { backgroundColor: activeTab === 5 ? "#4B85F9" : "#fff", color: activeTab === 5 ? "#fff" : "#000" }]}>Visual identity</Text>
+                        <Text onPress={() => handleActiveTab(5)} style={[styles2.item, { backgroundColor: activeTab === 5 ? "#4B85F9" : "#fff", color: activeTab === 5 ? "#fff" : "#000" }]}>Visual identity</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(5)} style={[styles2.item, { backgroundColor: activeTab === 6 ? "#4B85F9" : "#fff", color: activeTab === 6 ? "#fff" : "#000" }]}>Mathematics</Text>
+                        <Text onPress={() => handleActiveTab(6)} style={[styles2.item, { backgroundColor: activeTab === 6 ? "#4B85F9" : "#fff", color: activeTab === 6 ? "#fff" : "#000" }]}>Mathematics</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{ width: '100%' }}>
@@ -97,19 +101,19 @@ const FilterComponent = (props) => {
                 <Text style={{ color: '#fff', fontWeight: 600, fontSize: 20, marginTop: 20, marginBottom: 18 }}>Duration</Text>
                 <View style={{ width: "100%", display: "flex", alignItems: "center", flexDirection: "row", flexWrap: "wrap" }} >
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(1)} style={[styles2.item, { backgroundColor: activeTab === 1 ? "#4B85F9" : "#fff", color: activeTab === 1 ? "#fff" : "#000" }]}>3 - 8 hours</Text>
+                        <Text onPress={() => handleActiveTab2(1)} style={[styles2.item, { backgroundColor: activeTab2 === 1 ? "#4B85F9" : "#fff", color: activeTab2 === 1 ? "#fff" : "#000" }]}>3 - 8 hours</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(2)} style={[styles2.item, { backgroundColor: activeTab === 2 ? "#4B85F9" : "#fff", color: activeTab === 2 ? "#fff" : "#000" }]}>8 - 14 hours</Text>
+                        <Text onPress={() => handleActiveTab2(2)} style={[styles2.item, { backgroundColor: activeTab2 === 2 ? "#4B85F9" : "#fff", color: activeTab2 === 2 ? "#fff" : "#000" }]}>8 - 14 hours</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(3)} style={[styles2.item, { backgroundColor: activeTab === 3 ? "#4B85F9" : "#fff", color: activeTab === 3 ? "#fff" : "#000" }]}>14 - 20 hours</Text>
+                        <Text onPress={() => handleActiveTab2(3)} style={[styles2.item, { backgroundColor: activeTab2 === 3 ? "#4B85F9" : "#fff", color: activeTab2 === 3 ? "#fff" : "#000" }]}>14 - 20 hours</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(4)} style={[styles2.item, { backgroundColor: activeTab === 4 ? "#4B85F9" : "#fff", color: activeTab === 4 ? "#fff" : "#000" }]}>20 - 24 hours</Text>
+                        <Text onPress={() => handleActiveTab2(4)} style={[styles2.item, { backgroundColor: activeTab2 === 4 ? "#4B85F9" : "#fff", color: activeTab2 === 4 ? "#fff" : "#000" }]}>20 - 24 hours</Text>
                     </TouchableHighlight>
                     <TouchableHighlight>
-                        <Text onPress={() => handleActiveTab(4)} style={[styles2.item, { backgroundColor: activeTab === 5 ? "#4B85F9" : "#fff", color: activeTab === 5 ? "#fff" : "#000" }]}>24 - 30 hours</Text>
+                        <Text onPress={() => handleActiveTab2(5)} style={[styles2.item, { backgroundColor: activeTab2 === 5 ? "#4B85F9" : "#fff", color: activeTab2 === 5 ? "#fff" : "#000" }]}>24 - 30 hours</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={{ width: "100%", marginTop: 12, display: "flex", alignItems: "center", flexDirection: "row" }}>
