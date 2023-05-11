@@ -181,7 +181,12 @@ const Login = props => {
               <Google width="28" height="28" style={styles.icon}></Google>
               <TouchableOpacity
                 onPress={() => {
-                  alert('Login with Google');
+                  // alert('Login with Google');
+                  props.navigation.navigate('NavBar', {
+                    role: 'student',
+                    email: "email@gmail.com",
+                    password: "password",
+                  });
                 }}>
                 <Text
                   style={{
