@@ -13,6 +13,7 @@ export default styles = StyleSheet.create({
     flexDirection: 'row',
     textAlign: 'center',
     alignItems: 'center',
+    marginTop: 25,
   },
   buttonBack: {
     flex: 33,

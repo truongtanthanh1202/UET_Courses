@@ -11,6 +11,7 @@ export default styles = StyleSheet.create({
     marginHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 30,
   },
   mid: {
     flex: 95,

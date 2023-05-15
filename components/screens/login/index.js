@@ -144,7 +144,7 @@ const Login = props => {
               onPress={() => {
                 // alert(`Email = ${email}, Password = ${password}`);
                 props.navigation.navigate('NavBar', {
-                  role: 'student',
+                  role: email.includes('teacher') ? 'teacher' : 'student',
                   email: email,
                   password: password,
                 });

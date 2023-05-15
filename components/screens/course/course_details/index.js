@@ -184,8 +184,60 @@ const mockLessons = [
   },
 ]
 
-const Lessons = ({navigation}) => (
+const Lessons = ({navigation, role}) => (
   <View style={{ flex: 1, marginHorizontal: 20, gap: 16, marginBottom: 48, paddingTop: 32}}>
+    {role === 'teacher' && (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('CreateLesson', {
+            id_course: 'INT3120',
+          });
+        }}
+        activeOpacity={0.7}
+        style={{
+          borderColor: '#3787ff',
+          borderWidth: 1,
+          borderRadius: 6,
+          padding: 12,
+          flexDirection: 'row',
+        }}>
+        <View
+          style={{
+            backgroundColor: 'transparent',
+            paddingHorizontal: 30,
+            paddingVertical: 8,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderColor: '#777',
+            borderWidth: 1,
+            borderRadius: 6,
+          }}>
+          <Text
+            style={{
+              fontSize: 50,
+              color: '#777',
+            }}>
+            +
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: 'transparent',
+            marginHorizontal: 28,
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              fontSize: 18,
+              lineHeight: 28,
+              color: '#555',
+            }}>
+            {`Create new lesson for \nthis course`}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    )}
     {mockLessons.map((lesson, index) => {
       return (
         <View style={{flexDirection: 'column', gap: 12}} key={index}>
@@ -215,6 +267,7 @@ const Lessons = ({navigation}) => (
 
 const CourseDetails = ({route, navigation}) => {
   const { email } = route.params;
+  const { role } = route.params;
   const gobackHandler = () => {
     navigation.goBack();
   };
@@ -341,7 +394,7 @@ const CourseDetails = ({route, navigation}) => {
 
         <Tabs.Tab name={'Lessons'}>
           <Tabs.ScrollView>
-            <Lessons navigation={navigation}/>
+            <Lessons navigation={navigation} role={role}/>
           </Tabs.ScrollView>
         </Tabs.Tab>
       </Tabs.Container>

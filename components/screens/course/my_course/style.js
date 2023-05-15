@@ -13,6 +13,7 @@ export default styles = StyleSheet.create({
     marginHorizontal: 20,
     flexDirection: 'row',
     textAlign: 'center',
+    marginTop: 40,
     // alignItems: 'center',
   },
   button: {

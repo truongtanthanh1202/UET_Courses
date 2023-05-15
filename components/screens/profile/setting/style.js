@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 20,
   },
   mid: {
     flex: 90,
