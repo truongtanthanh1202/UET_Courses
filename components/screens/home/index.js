@@ -71,6 +71,7 @@ const renderHomeHeader = props => {
   return (
     <View
       style={{
+        height: 110, // Dont even ask!
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -132,7 +133,7 @@ const renderTopSection = () => {
   return (
     <View
       style={{
-        paddingVertical: 20,
+        // paddingVertical: 20,
         paddingLeft: 24,
         backgroundColor: 'white',
       }}>
@@ -454,7 +455,7 @@ const Home = ({route, navigation}) => {
         hidden={false}
         backgroundColor="transparent"
       />
-      <ScrollView>
+      <ScrollView style={{flex: 1}}>
         {/* Header section */}
         {renderHomeHeader()}
 

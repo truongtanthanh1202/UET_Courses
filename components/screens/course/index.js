@@ -29,6 +29,7 @@ const Course = ({route, navigation}) => {
     return (
       <View
         style={{
+          flex: 18,
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -87,7 +88,7 @@ const Course = ({route, navigation}) => {
   function renderNavigators() {
     return (
       <View style={{
-        flex: 1,
+        flex: 7,
         flexDirection: 'row',
         width: '100%',
         backgroundColor: '#3787ff',
@@ -150,9 +151,10 @@ const Course = ({route, navigation}) => {
       />
       <View style={styles.top}>
         {renderHeader()}
-        <ScrollView style={{paddingHorizontal: 18}}>
+        {/* {renderNavigators()} */}
+        <View style={{paddingHorizontal: 18, flex: 8, marginBottom: 4}}>
           {renderNavigators()}
-        </ScrollView>
+        </View>
       </View>
 
       <View style={styles.mid}>
