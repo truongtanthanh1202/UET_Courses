@@ -5,13 +5,13 @@ export default styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    flex: 18,
-    // paddingHorizontal: 24,
+    flex: 20,
+    // paddingHorizontal: 12,
     justifyContent: 'center',
-    gap: 24,
+    // gap: 12,
   },
   mid: {
-    flex: 82,
+    flex: 80,
     backgroundColor: "#e4f1f9",
     gap: 12,
   },
