@@ -16,6 +16,7 @@ import Lesson from './components/screens/course/lesson';
 
 import { ModalPortal } from 'react-native-modals';
 import Search2 from './components/screens/search/search_2';
+import CreateLesson from './components/screens/create_lesson';
 
 
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,7 @@ const App = () => {
         <Stack.Screen name="Lesson" component={Lesson}/>
 
         <Stack.Screen name="Search2" component={Search2}/>
+        <Stack.Screen name="CreateLesson" component={CreateLesson}/>
 
 
       </Stack.Navigator>
