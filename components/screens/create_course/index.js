@@ -18,40 +18,13 @@ import VideoViewer from '../../atoms/VideoViewer';
 // Thunmnail: https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png
 // Pdf: http://samples.leanpub.com/thereactnativebook-sample.pdf
 
-const CreateLesson = props => {
-  const {id_course} = props.route.params;
+const CreateCourse = props => {
+  const {role, email, firstname, lastname} = props.route.params;
   const [courseName, setCourseName] = useState('none');
   const [courseDescription, setCourseDescription] = useState('none');
   const [thumbnailUrl, setThumbnailUrl] = useState('none');
   const [videoUrl, setVideoUrl] = useState('none');
   const [documentUrl, setDocumentUrl] = useState('none');
-  function goBack() {
-    props.navigation.goBack();
-  }
-  const createLessonToServer = async () => {
-  //   const data = {
-  //     id_course: id_course,
-  //     description: courseName,
-  //     topic: courseDescription,
-  //     video: videoUrl,
-  //     thumbnail: thumbnailUrl,
-  //     document: documentUrl,
-  //   };
-  //   const res = await axios.post(
-  //     `http://10.0.2.2:4848/teacher/createLesson`,
-  //     data,
-  //   );
-  //   const status = res.data.message;
-  //   console.log(status);
-  //   if (status == '200') {
-  //     alert('Create lesson successfully');
-  //     props.navigation.goBack();
-  //   } else {
-  //     alert('Something went wrong, please try again');
-  //   }
-      alert('Create lesson successfully');
-      goBack();
-  };
   const isValidateOK = () => {
     return (
       courseName.length > 5 &&
@@ -61,8 +34,16 @@ const CreateLesson = props => {
       documentUrl.length > 2
     );
   };
+
   const [viewType, setViewType] = useState('');
   const [viewUrl, setViewUrl] = useState('');
+  function goBack() {
+    props.navigation.goBack();
+  }
+  const createCourseToServer = async () => {
+    alert('Create course successfully');
+    goBack()
+  };
   function renderHeader() {
     return (
       <View style={styles.header}>
@@ -88,7 +69,7 @@ const CreateLesson = props => {
                 fontSize: 20,
                 color: '#333',
               }}>
-              Create new Lesson
+              Create new Course
             </Text>
           </View>
         </View>
@@ -146,23 +127,23 @@ const CreateLesson = props => {
       );
     }
   }
-  function renderLessonInfoField() {
+  function renderCourseInfoField() {
     return (
       <>
         <View style={styles.profileInforItem}>
-          <Text style={styles.titleInputField}>Course name, id</Text>
+          <Text style={styles.titleInputField}>Teacher name</Text>
           <TextInput
             style={styles.inputField}
-            value={id_course ?? `Test course`}
+            value={`${firstname}` + ' ' + `${lastname}`}
             placeholderTextColor="black"
             editable={false}></TextInput>
         </View>
 
         <View style={styles.profileInforItem}>
-          <Text style={styles.titleInputField}>Lesson title</Text>
+          <Text style={styles.titleInputField}>Course name</Text>
           <TextInput
             style={styles.inputField}
-            placeholder="enter lesson title"
+            placeholder="enter course name"
             placeholderTextColor="#555"
             onChangeText={text => {
               setCourseName(text);
@@ -170,10 +151,10 @@ const CreateLesson = props => {
         </View>
 
         <View style={styles.profileInforItem}>
-          <Text style={styles.titleInputField}>Lesson description</Text>
+          <Text style={styles.titleInputField}>Course description</Text>
           <TextInput
             style={[styles.multilineInput]}
-            placeholder="enter lesson description"
+            placeholder="enter course description"
             placeholderTextColor="#555"
             multiline={true}
             numberOfLines={3}
@@ -218,7 +199,7 @@ const CreateLesson = props => {
         </View>
 
         <View style={styles.profileInforItem}>
-          <Text style={styles.titleInputField}>Lesson video url</Text>
+          <Text style={styles.titleInputField}>Video Intro url</Text>
           <View style={{flexDirection: 'row'}}>
             <TextInput
               style={styles.inputField}
@@ -253,7 +234,7 @@ const CreateLesson = props => {
         </View>
 
         <View style={styles.profileInforItem}>
-          <Text style={styles.titleInputField}>Lesson's document url</Text>
+          <Text style={styles.titleInputField}>Course's document url</Text>
           <View style={{flexDirection: 'row'}}>
             <TextInput
               style={styles.inputField}
@@ -296,6 +277,7 @@ const CreateLesson = props => {
         style={{
           flex: 1,
         }}>
+        {/* Body */}
         <View
           style={{
             height: 240,
@@ -306,10 +288,10 @@ const CreateLesson = props => {
           }}>
           {renderDemoView(viewType, viewUrl)}
         </View>
-        {renderLessonInfoField()}
+        {renderCourseInfoField()}
+
         <View style={{height: 40, backgroundColor: 'transparent'}}></View>
       </ScrollView>
-
       <View style={{flexDirection: 'row', marginTop: 16, marginBottom: 16}}>
         <View
           style={{flex: 50, justifyContent: 'center', alignItems: 'center'}}>
@@ -327,8 +309,7 @@ const CreateLesson = props => {
                 opacity: isValidateOK() ? 1 : 0.7,
               },
             ]}
-            onPress={createLessonToServer}
-          >
+            onPress={createCourseToServer}>
             <Text style={styles.textSubmit}>Submit</Text>
           </TouchableOpacity>
         </View>
@@ -337,7 +318,7 @@ const CreateLesson = props => {
   );
 };
 
-export default CreateLesson;
+export default CreateCourse;
 
 const styles = StyleSheet.create({
   container: {

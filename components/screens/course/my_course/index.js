@@ -4,9 +4,17 @@ import * as Progress from 'react-native-progress';
 import styles from './style';
 
 const MyCourse = ({route, navigation}) => {
-  const { email } = route.params;
+  const { email, role, fullname } = route.params;
   const gobackHandler = () => {
     navigation.goBack();
+  };
+  const handleToCreateCourse = () => {
+    navigation.navigate('CreateCourse', {
+      role: role,
+      email: email,
+      firstname: fullname,
+      lastname: "",
+    });
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -22,8 +30,28 @@ const MyCourse = ({route, navigation}) => {
         <View style={{
           flex: 67,
         }}>
-          <Text style={styles.screenTitle}>My Courses</Text>
+          <Text style={styles.screenTitle}>{role === 'teacher' && '      '}My Courses</Text>
         </View>
+        {role === 'teacher' && (
+          <TouchableOpacity
+            onPress={handleToCreateCourse}
+            activeOpacity={0.6}
+            style={{
+              backgroundColor: '#3787ff',
+              paddingHorizontal: 12,
+              paddingVertical: 6,
+              borderRadius: 12,
+            }}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 16,
+                color: '#fff',
+              }}>
+              + Create
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       <View style={styles.mid}>
